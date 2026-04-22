@@ -1,7 +1,7 @@
 <section id="about" class="about">
   <div class="container">
     <div class="section-header">
-      <h2>About Mangu Coding Club</h2>
+      <h2>About Mangu Mechatronics Club</h2>
       <p>Empowering the next generation of developers</p>
     </div>
     
@@ -9,7 +9,7 @@
       <div class="about-text">
         <h3>Our Mission</h3>
         <p>
-          At Mangu Coding Club, we believe that coding is not just about writing code—it's about 
+          At Mangu Mechatronics Club, we believe that Mechatronics is not just about writing code—it's about 
           solving problems, building communities, and creating innovative solutions that make a 
           difference. We're dedicated to fostering a supportive environment where beginners can 
           learn, experienced developers can share knowledge, and everyone can grow together.
@@ -19,7 +19,7 @@
         <ul>
           <li>🚀 <strong>Workshops & Tutorials:</strong> Regular sessions on various programming languages and technologies</li>
           <li>🏗️ <strong>Project Building:</strong> Collaborative projects to build real-world applications</li>
-          <li>🎯 <strong>Hackathons:</strong> Exciting coding competitions and innovation challenges</li>
+          <li>🎯 <strong>Hackathons:</strong> Exciting Mechatronics competitions and innovation challenges</li>
           <li>🤝 <strong>Networking:</strong> Connect with like-minded developers and industry professionals</li>
           <li>📚 <strong>Mentorship:</strong> Pair experienced members with newcomers for guidance</li>
         </ul>
@@ -32,7 +32,7 @@
         </div>
         
         <div class="stat-card">
-          <div class="stat-number">50+</div>
+          <div class="stat-number">30+</div>
           <div class="stat-label">Projects Built</div>
         </div>
         
@@ -55,10 +55,10 @@
         <div class="tech-item">Python</div>
         <div class="tech-item">Java</div>
         <div class="tech-item">React</div>
-        <div class="tech-item">Node.js</div>
+        <div class="tech-item">Rust</div>
         <div class="tech-item">Svelte</div>
         <div class="tech-item">MongoDB</div>
-        <div class="tech-item">PostgreSQL</div>
+        <div class="tech-item">MySQL</div>
         <div class="tech-item">Docker</div>
         <div class="tech-item">AWS</div>
         <div class="tech-item">Git</div>
@@ -149,7 +149,7 @@
   .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #667eea;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
   }
   
@@ -176,7 +176,7 @@
   }
   
   .tech-item {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
     padding: 1rem;
     border-radius: 8px;

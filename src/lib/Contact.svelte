@@ -13,7 +13,7 @@
     text-align: center;
   }
   .contact-page h1 {
-    color: #0077cc;
+    color: var(--accent-color);
     margin-bottom: 1rem;
   }
   .contact-page p {

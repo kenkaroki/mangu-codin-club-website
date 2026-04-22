@@ -9,6 +9,8 @@
     import Sponsor from './lib/SponsorUs.svelte'
     import History from './lib/Club_history.svelte'
     import Groups from './lib/Groups.svelte'
+    import LearningMaterials from './lib/LearningMaterials.svelte'
+    import ProjectGallery from './lib/ProjectGallery.svelte'
   
     // Simple routing: track the current page
     let page = 'home';
@@ -21,7 +23,7 @@
   </script>
   
   <main>
-    <Header />
+    <Header on:navigate={e => navigate(e.detail)} />
   
     {#if page === 'home'}
       <Hero />
@@ -34,6 +36,10 @@
       <Mentor />
     {:else if page === 'sponsor'}
       <Sponsor />
+    {:else if page === 'learning'}
+      <LearningMaterials />
+    {:else if page === 'gallery'}
+      <ProjectGallery />
     {/if}
   
     <Footer on:navigate={e => navigate(e.detail)} />
