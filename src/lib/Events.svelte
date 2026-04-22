@@ -1,13 +1,17 @@
 <script lang="ts">
-  const upcomingEvents = [
-    {
-      title: "Tech Gala",
-      date: "July 19, 2025",
-      time: "9:00 AM - 4:00 PM",
-      location: "Mangu High School ",
-      description: "Show case of innovative projects by students , networking , learning and fun.",
-      type: "Exhibition"
-    },
+  const upcomingEvents:any = [
+    //this is the required formart of events use this hard coded method 
+    //till you guys make it dynamic
+
+
+    // {
+    //   title: "Tech Gala",
+    //   date: "July 19, 2025",
+    //   time: "9:00 AM - 4:00 PM",
+    //   location: "Mangu High School ",
+    //   description: "Show case of innovative projects by students , networking , learning and fun.",
+    //   type: "Exhibition"
+    // },
  
   ];
 
@@ -86,14 +90,7 @@
       </div>
     </div>
 
-    <!-- <div class="cta-section">
-      <h3>Want to stay updated?</h3>
-      <p>Join our community to get notified about upcoming events and activities!</p>
-      <div class="cta-buttons">
-        <button class="btn primary">Join Discord</button>
-        <button class="btn secondary">Subscribe Newsletter</button>
-      </div>
-    </div> -->
+    
   </div>
 </section>
 
@@ -264,64 +261,6 @@
     color: #666;
   }
   
-  .cta-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 3rem;
-    border-radius: 12px;
-    text-align: center;
-  }
-  
-  .cta-section h3 {
-    font-size: 1.8rem;
-    margin: 0 0 1rem 0;
-  }
-  
-  .cta-section p {
-    font-size: 1.1rem;
-    margin: 0 0 2rem 0;
-    opacity: 0.9;
-  }
-  
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .btn {
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s ease;
-  }
-  
-  .btn.primary {
-    background: #ff6b6b;
-    color: white;
-  }
-  
-  .btn.primary:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
-  }
-  
-  .btn.secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-  }
-  
-  .btn.secondary:hover {
-    background: white;
-    color: #667eea;
-    transform: translateY(-2px);
-  }
-  
   @media (max-width: 768px) {
     .events {
       padding: 4rem 0;
@@ -344,19 +283,6 @@
       flex-direction: column;
       gap: 1rem;
     }
-    
-    .cta-section {
-      padding: 2rem;
-    }
-    
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .btn {
-      width: 100%;
-      max-width: 250px;
-    }
+
   }
 </style>

@@ -1,10 +1,12 @@
-# 🥭 Mangu Coding Club Website
+# Mangu Mechatronics Club Website
 
 Welcome to the official website of Mangu Coding Club! This modern, responsive website showcases our community, events, and activities.
 
 ## 🚀 Live Website
 
 Visit our website at: [https://mangu-codes-club.github.io/mangu-codin-club-website/](https://mangu-codes-club.github.io/mangu-codin-club-website/)
+
+
 
 ## 🛠️ Tech Stack
 
@@ -62,6 +64,8 @@ src/
 
 ## 🚀 Deployment
 
+Make sure to read the DEPLOYMENT_INSTRUCTIONS.md file for detailed deployment instructions.
+
 This website is automatically deployed to GitHub Pages using GitHub Actions. Every push to the `main` branch triggers a new deployment.
 
 ### Manual Deployment Steps:
@@ -84,20 +88,18 @@ We welcome contributions from club members! Here's how you can help:
 
 ## 📋 TODO / Future Enhancements
 
-- [ ] Add member login/registration system
 - [ ] Integrate with calendar API for events
 - [ ] Add blog/news section
-- [ ] Implement project showcase gallery
+- [x] Implement project showcase gallery
 - [ ] Add workshop booking system
 - [ ] SEO optimization
-- [ ] Add more interactive elements
+- [x] Add more interactive elements
 
 ## 📞 Contact
 
 For questions about this website or to join the Mangu Coding Club:
 
-- 📧 Email: hello@mangucodingclub.com
-- 💬 Discord: [Join our server](#)
+- 📧 Email: mangucodingclub@proton.me
 - 🐙 GitHub: [mangu-codes-club](https://github.com/mangu-codes-club)
 
 ## 📄 License

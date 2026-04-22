@@ -1,200 +1,280 @@
 <script lang="ts">
-    // Import images for each group
-    import backendImage from '../assets/clubs_images/backend.jpeg';
-    import frontendImage from '../assets/clubs_images/frontends.avif';
-    import hackingImage from '../assets/clubs_images/hacking.webp';
-    import embeddedImage from '../assets/clubs_images/embededsystems.jpeg';
-    import gamedevImage from '../assets/clubs_images/gamedev.avif';
+    // software group images
+    import SoftwareImage from '../assets/clubs_images/software.jpg';
+    import HackingImage from '../assets/clubs_images/hacking.jpg';
+    import EmbeddedImage from '../assets/clubs_images/embededPrograming.jpg';
+    import GameDevImage from '../assets/clubs_images/gamedev.jpg';
+
+    // Robotics group images
+    import DesignImage from '../assets/clubs_images/design.jpg';
+    import MechanicsImage from '../assets/clubs_images/mechanics.jpg';
+    import ElectronicsImage from '../assets/clubs_images/electronics.jpg';
+
+    
+    
+    
+
+    let activeTab: 'software' | 'robotics' = 'software';
+
+    const softwareGroups = [
+        {
+            name: 'Software Engineering',
+            icon: '💻',
+            description: 'From next-generation databases to the future of user experience. We craft applications, build large language models, and turn imagination into reality.',
+            image: SoftwareImage
+        },
+        {
+            name: 'Embedded Programming',
+            icon: '🤖',
+            description: 'We bring intelligence to hardware. From microcontrollers to IoT solutions, we build smart devices that interact with the physical world.',
+            image: EmbeddedImage
+        },
+        {
+            name: 'Ethical Hacking & Cyber Security',
+            icon: '👨🏼‍💻',
+            description: 'The guardians of the digital realm. From penetration testing to ethical hacking, we learn how to break systems to make them stronger.',
+            image: HackingImage
+        },
+        {
+            name: 'Game Development',
+            icon: '🎮',
+            description: 'Imagination becomes reality. From stunning 2D worlds to immersive 3D adventures, we create interactive experiences powered by cutting-edge engines.',
+            image: GameDevImage
+        }
+    ];
+
+    const roboticsGroups = [
+        {
+            name: 'Mechanics',
+            icon: '⚙️',
+            description: 'We design the physical chassis, moving parts, and structural integrity of advanced robots. Turning ideas into sturdy, functional machines.',
+            image: MechanicsImage
+        },
+        {
+            name: 'Electronics',
+            icon: '⚡',
+            description: 'The nervous system of robotics. We design circuits, manage power distribution, and wire the sensors that allow robots to perceive their environment.',
+            image: ElectronicsImage
+        },
+        {
+            name: 'Design',
+            icon: '📐',
+            description: 'Drafting perfection. We use CAD software to model components for 3D printing and manufacturing, ensuring everything fits flawlessly.',
+            image: DesignImage
+        }
+    ];
+
 </script>
 
-
-<section>
-    <div class = 'club_groups'>
-        <h2 class = 'main_title'>How We Work</h2>
-        <p class = 'groups_intro'>
-            The way coding club approaches learning is simple and efficient.We break into groups
-            each dealing with its own unique aspect.As of now the club has the following groups</p>
+<section class="groups-section">
+    <div class="intro-container">
+        <h2 class="main-title">How We Work</h2>
+        <p class="groups-intro">
+            The way Mechatronics club approaches learning is simple and efficient. We break into groups, each dealing with its own unique aspect.<br/><br/>
+            We have two main branches: <strong>Software</strong> and <strong>Robotics</strong>, each featuring specialized sub-groups.
+        </p>
     </div>
 
-    <div class = 'groups_backend'>
-        <img class = 'project_group_image' src="{backendImage}" alt="Backend_photo">
-        <div>
-            <h2 class = 'group_name'>Backend 💻</h2>
-            <p class = 'about_groups'>
-                languages to harnessing the power of next-generation databases, we do it all. We craft our own large language models and write code that turns imagination into reality.
-                <br>Welcome to Mangu Coding Club – Backend, where innovation begins.
-            </p>
-        </div>
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <button 
+            class="tab-btn {activeTab === 'software' ? 'active' : ''}" 
+            on:click={() => activeTab = 'software'}>
+            Software Branch
+        </button>
+        <button 
+            class="tab-btn {activeTab === 'robotics' ? 'active' : ''}" 
+            on:click={() => activeTab = 'robotics'}>
+            Robotics Branch
+        </button>
     </div>
 
-    <div class = 'groups_frontend'>
-        <div>
-            <h2 class = 'group_name'>Frontend 📱</h2>
-            <p class = 'about_groups'>
-                In Frontend, we design the future of user experience. From sleek interfaces to lightning-fast interactions, we bring creativity and technology together. Using the latest frameworks and tools, we craft designs that don’t just look amazing—they perform flawlessly.
-                <br>Welcome to Mangu Coding Club – Frontend, where design meets innovation.
-            </p>
-        </div>
-        <img class = 'project_group_image' src="{frontendImage}" alt="Frontend_photo">
+    <!-- Groups Grid -->
+    <div class="groups-grid">
+        {#each activeTab === 'software' ? softwareGroups : roboticsGroups as group}
+            <div class="group-card">
+                <div class="card-image-wrapper">
+                    <img src={group.image} alt="{group.name} Photo" class="card-image" />
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="group-name">{group.name} <span class="group-icon">{group.icon}</span></h3>
+                    <p class="group-description">{group.description}</p>
+                </div>
+            </div>
+        {/each}
     </div>
-
-    <div class = 'groups_hacking'>
-        <img class = 'project_group_image' src="{hackingImage}" alt="Cyber_Security_photo">
-        <div>
-            <h2 class = 'group_name_hacking'>Ethical Hacking & Cyber Security 👨🏼‍💻</h2>
-            <p class = 'about_groups'>
-                In Cybersecurity, we are the guardians of the digital realm. From penetration testing to ethical hacking, we learn how to break systems—so we can make them stronger. We fight vulnerabilities with knowledge and defend against tomorrow’s threats today.
-                <br>Welcome to Mangu Coding Club – Cybersecurity, where security meets skill.
-            </p>
-        </div>
-    </div>
-
-    <div class = 'groups_embeded'>
-        <div>
-            <h2 class = 'group_name'>Embeded Systems 🤖</h2>
-            <p class = 'about_groups'>
-                In Embedded Systems, we bring intelligence to hardware. From microcontrollers to IoT solutions, we build smart devices that interact with the world. Combining electronics and code, we turn concepts into connected innovations.
-                <br>Welcome to Mangu Coding Club – Embedded Systems, where hardware comes alive.
-            </p>
-        </div>
-        <img class = 'project_group_image' src="{embeddedImage}" alt="Embeded_Systems_photo">
-    </div>
-
-    <div class = 'groups_gamedev'>
-        <img class = 'project_group_image' src="{gamedevImage}" alt="Game_Development_photo">
-        <div>
-            <h2 class = 'group_name_gamedev'>Game Development 🎮</h2>
-            <p class = 'about_groups'>
-                In Game Development, imagination becomes reality. From stunning 2D worlds to immersive 3D adventures, we create interactive experiences powered by cutting-edge engines and creativity. We don’t just play games—we build them.
-                <br>Welcome to Mangu Coding Club – Game Development, where fun meets innovation.
-            </p>
-        </div>
-    </div>
-
 </section>
 
 <style>
-    .club_groups{
-        height: 200;
-        width: 90%;
+    .groups-section {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 6rem;
+        padding: 0 2rem;
+        font-family: inherit;
+    }
+
+    .intro-container {
+        text-align: center;
+        margin-bottom: 4rem;
         padding: 3rem;
-        
-        border-radius: 1rem;
-        margin-bottom: 5rem;
-        margin-left: 4rem;
+        background: var(--card-background, #f8fafc);
+        border-radius: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
-    .groups_backend{
-        height:35rem;
-        width: 80%;
-        border-radius: 1rem;
-        padding: 4rem;
-        margin: 5rem auto 5rem 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    .groups_frontend{
-        height:35rem;
-        width: 80%;
-        border-radius: 1rem;
-        padding: 4rem;
-        margin: 5rem 1rem 5rem auto;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    .groups_hacking{
-        height:35rem;
-        width: 80%;
-        border-radius: 1rem;
-        padding: 4rem;
-        margin: 5rem auto 5rem 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    .groups_embeded{
-        height:35rem;
-        width: 80%;
-        border-radius: 1rem;
-        padding: 4rem;
-        margin: 5rem 1rem 5rem auto;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    .groups_gamedev{
-        height:35rem;
-        width: 80%;
-        border-radius: 1rem;
-        padding: 4rem;
-        margin: 5rem auto 5rem 1rem;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-    .project_group_image{
-        height: 25rem;
-        width: 30rem;
-        border-radius: 2rem;
-        
-        padding: 2rem;
-    }
-    .groups_intro{
-        font-size: x-large;
-        margin-left: 10rem;
-        margin-bottom: 0.5rem;
-    }
-    h2{
-        font-size: xx-large;
-    }
-    .main_title{
-        margin-left: 25rem;
-        margin-bottom: 3rem;
-        font-size: xx-large;
-    }
-   
 
-@media (max-width: 900px) {
-    .club_groups {
-        width: 100%;
-        padding: 1.5rem;
-        margin-left: 0;
-        text-align: center;
+    .main-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--primary-color, #10b981), var(--secondary-color, #047857));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
-    .main_title {
-        margin-left: 0;
+
+    .groups-intro {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        color: var(--text-color, #334155);
+        max-width: 800px;
+        margin: 0 auto;
     }
-    .groups_intro {
-        margin-left: 0;
-        font-size: large;
+
+    /* Tabs */
+    .tab-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 4rem;
     }
-    .groups_backend,
-    .groups_frontend,
-    .groups_hacking,
-    .groups_embeded,
-    .groups_gamedev {
-        width: 100%;
+
+    .tab-btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 3rem;
+        cursor: pointer;
+        background: var(--card-background, #f1f5f9);
+        color: var(--text-color, #475569);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .tab-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        background: #e2e8f0;
+    }
+
+    .tab-btn.active {
+        background: linear-gradient(135deg, var(--primary-color, #10b981), var(--secondary-color, #047857));
+        color: white;
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Grid */
+    .groups-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .group-card {
+        background: white;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(0,0,0,0.05);
+        display: flex;
         flex-direction: column;
-        height: auto;
-        margin: 2rem 0;
-        padding: 1.5rem;
-        text-align: center;
     }
 
-    .project_group_image {
-        height: auto;
-        width: 90%;
-        max-width: 20rem;
-        margin: 0 auto 1rem;
+    .group-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        border-color: var(--primary-color, #10b981);
     }
-    .groups_frontend, .groups_embeded {
-        margin: 2rem 0;
+
+    .card-image-wrapper {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
     }
-}
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .group-card:hover .card-image {
+        transform: scale(1.05);
+    }
+
+    .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    }
+
+    .card-content {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .group-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--text-color, #1e293b);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .group-icon {
+        font-size: 1.8rem;
+    }
+
+    .group-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #64748b;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .intro-container {
+            padding: 2rem 1.5rem;
+        }
+
+        .main-title {
+            font-size: 2.2rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .groups-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>

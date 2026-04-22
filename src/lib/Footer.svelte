@@ -29,27 +29,26 @@
       <div class="footer-section">
         <h4>Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#" on:click|preventDefault={() => dispatch('navigate', 'contact')}>Contact</a></li>
+          <li><a href="#home" on:click|preventDefault={() => handleNavigate('home', '#home')}>Home</a></li>
+          <li><a href="#about" on:click|preventDefault={() => handleNavigate('home', '#about')}>About Us</a></li>
+          <li><a href="#events" on:click|preventDefault={() => handleNavigate('home', '#events')}>Events</a></li>
+          <li><a href="#contact" on:click|preventDefault={() => handleNavigate('home', '#contact')}>Contact</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h4>Resources</h4>
         <ul class="footer-links">
-          <li><a href="#">Learning Materials</a></li>
-          <li><a href="#">Project Gallery</a></li>
-       
+          <li><a href="#" on:click|preventDefault={() => handleNavigate('learning')}>Learning Materials</a></li>
+          <li><a href="#" on:click|preventDefault={() => handleNavigate('gallery')}>Project Gallery</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h4>Get Involved</h4>
         <ul class="footer-links">
-          <li><a href="#" on:click|preventDefault={() => dispatch('navigate', 'mentor')}>Become a Mentor</a></li>
-          <li><a href="#" on:click|preventDefault={() => dispatch('navigate', 'sponsor')}>Sponsor Us</a></li>
+          <li><a href="#" on:click|preventDefault={() => handleNavigate('mentor')}>Become a Mentor</a></li>
+          <li><a href="#" on:click|preventDefault={() => handleNavigate('sponsor')}>Sponsor Us</a></li>
         </ul>
       </div>
       
@@ -115,7 +114,7 @@
   .footer-section h4 {
     margin: 0 0 1.5rem 0;
     font-size: 1.2rem;
-    color: #667eea;
+    color: var(--primary-color);
   }
   
   .footer-section p {
@@ -144,7 +143,7 @@
   }
   
   .social-link:hover {
-    background: #667eea;
+    background: var(--primary-color);
     transform: translateY(-2px);
   }
   
@@ -169,7 +168,7 @@
   }
   
   .footer-links a:hover {
-    color: #667eea;
+    color: var(--primary-color);
   }
   
   .contact-info {
@@ -224,7 +223,7 @@
   }
   
   .footer-bottom-links a:hover {
-    color: #667eea;
+    color: var(--primary-color);
   }
   
   nav {
@@ -235,7 +234,7 @@
   }
   
   nav a {
-    color: #0077cc;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 500;
   }
@@ -285,4 +284,14 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
+
+  function handleNavigate(page: string, hash: string = '') {
+    dispatch('navigate', page);
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
 </script>

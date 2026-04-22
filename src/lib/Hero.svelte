@@ -1,52 +1,42 @@
+<script>
+    // TODO: Add your robotic arm video here
+    import roboticArmVideo from '../assets/animations/roboticarmanimation.mp4';
+    
+</script>
+
 <section id="home" class="hero">
   <div class="container">
     <div class="hero-content">
       <h1>
         Welcome to<br />
-        Mangu Coding<br />
+        Mangu Mechatronics<br />
          Club
       </h1>
       <p class="hero-subtitle">
-        Where passion meets programming! <br />Join our community of developers,<br /> 
-        learners, and innovators as <br />we explore the exciting <br />world of code together.
+        Where passion meets engineering! <br />Join our community of developers,<br /> 
+        builders, and innovators as <br />we explore the exciting <br />world of code and hardware together.
       </p>
       <div class="hero-buttons">
-        <!-- <button class="btn primary">Join Us</button> -->
         <button class="btn secondary"><a href="#about">Learn More</a></button>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="code-block">
-        <div class="code-header">
-          <div class="dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span class="filename">mangu-club.js</span>
-        </div>
-        <div class="code-content">
-          <pre><code>const manguClub = &#123;
-  mission: "Learn, Build, Share",
-  members: "Growing daily!",
-  languages: [
-          "JavaScript",
-          "Python", 
-          "Java"
-     ],
-  activities: [
-          "Workshops",
-          "Hackathons", 
-          "Projects"
-     ],
-  
-  welcome() &#123;
-    console.log(
-      "Welcome to Mangu Coding Club!"
-      );
-  &#125;
-&#125;;</code></pre>
-        </div>
+      <div class="video-block">
+        {#if roboticArmVideo}
+            <video 
+                src={roboticArmVideo} 
+                autoplay 
+                loop 
+                muted 
+                playsinline>
+            </video>
+        {:else}
+            <!-- Placeholder while video is missing -->
+            <div class="video-placeholder">
+                <span class="placeholder-icon">🦾</span>
+                
+            </div>
+        {/if}
       </div>
     </div>
   </div>
@@ -54,20 +44,20 @@
 
 <style>
   .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 6rem 0;
+    padding: 6rem;
     min-height: 80vh;
     display: flex;
     align-items: center;
   }
   
   .container {
-    max-width: 1200px;
+    max-width: 1350px;
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: 4rem;
     align-items: center;
   }
@@ -103,15 +93,12 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-  
-  .btn.primary {
-    background: #ff6b6b;
-    color: white;
-  }
-  
-  .btn.primary:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
+
+  /* Fix anchor tag text visibility inside buttons */
+  .btn a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
   }
   
   .btn.secondary {
@@ -122,64 +109,58 @@
   
   .btn.secondary:hover {
     background: white;
-    color: #667eea;
+    color: var(--primary-color);
     transform: translateY(-2px);
   }
   
-  .code-block {
+  .video-block {
     background: #1e1e1e;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0f172a;
+    border: 1px solid rgba(255,255,255,0.1);
   }
   
-  .code-header {
-    background: #2d2d2d;
-    padding: 1rem;
+  .video-block video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    color: #94a3b8;
+    text-align: center;
   }
-  
-  .dots {
-    display: flex;
-    gap: 0.5rem;
+
+  .placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
   }
-  
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-  
-  .dot.red { background: #ff5f56; }
-  .dot.yellow { background: #ffbd2e; }
-  .dot.green { background: #27ca3f; }
-  
-  .filename {
-    color: #a0a0a0;
-    font-size: 0.9rem;
-  }
-  
-  .code-content {
-    padding: 1.5rem;
-  }
-  
-  .code-content pre {
-    margin: 0;
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #e6e6e6;
-  }
-  
-  .code-content code {
-    color: #e6e6e6;
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
   }
   
   @media (max-width: 768px) {
     .hero {
-      padding: 4rem 0;
+      padding: 4rem;
+      overflow-x: hidden;
+      width: 100%;
+      
     }
     
     .container {
@@ -199,13 +180,8 @@
       font-size: 1.1rem;
     }
     
-    .code-block {
+    .video-block {
       max-width: 100%;
-      overflow-x: auto;
-    }
-    
-    .code-content pre {
-      font-size: 0.8rem;
     }
   }
 </style>
