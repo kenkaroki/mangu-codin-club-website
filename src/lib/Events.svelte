@@ -20,7 +20,7 @@
       title: "Web Development for Beginners",
       date: "March 20, 2025",
       attendees: 45,
-      description: "Introduction to Python programming language."
+      description: "Introduction to web development. Taught by Kevin Nchore Moseti"
     },
  
   ];
